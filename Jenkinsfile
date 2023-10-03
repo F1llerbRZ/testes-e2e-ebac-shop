@@ -12,10 +12,15 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Executar testes') {
+        stage('Executar servidor') {
             steps {
-                sh 'NO_COLOR=1 npm run cy:run'
+               sh 'npm start' 
+            }
+        }
+     stage('Executar testes') {
+            steps {
+               sh 'npx cypress run'
             }
         }
     }
-}  
+}
